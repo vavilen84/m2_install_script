@@ -65,26 +65,22 @@ echo "Clear cache"
 bin/magento cache:clean
 bin/magento cache:flush
 
-# upgrade
-echo "Upgrade"
-bin/magento setup:upgrade
-bin/magento setup:di:compile
-bin/magento setup:static-content:deploy -f
-
 # load fixtures
 echo "Load fixtures"
 bin/magento setup:performance:generate-fixtures setup/performance-toolkit/profiles/ce/small.xml
 bin/magento config:set catalog/frontend/flat_catalog_category 1
 bin/magento config:set catalog/frontend/flat_catalog_product 1
 
+# upgrade
+echo "Upgrade"
+bin/magento setup:upgrade
+bin/magento setup:di:compile
+bin/magento setup:static-content:deploy -f
+
 # clear cache
 echo "Clear cache"
 bin/magento cache:clean
 bin/magento cache:flush
-
-# set developer mode
-echo "Set developer mode"
-bin/magento deploy:mode:set developer
 
 # fix permissions
 echo "Fix permissions"

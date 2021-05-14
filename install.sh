@@ -33,7 +33,7 @@ cp -R $M2_SOURCE_FOLDER $M2_DESTINATION_FOLDER
 echo "Install Magento via CLI"
 cd $M2_DESTINATION_FOLDER
 bin/magento setup:install \
---cleanup-database
+--cleanup-database \
 --use-secure=1 \
 --use-secure-admin=1 \
 --base-url-secure=$BASE_URL \
